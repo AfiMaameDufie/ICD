@@ -1,7 +1,16 @@
-FROM python:3
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+#Pull base image
+FROM python:3.8
+
+#set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+#set work directory
 WORKDIR /code
-COPY requirements.txt /code/
-RUN pip install -r requirements.txt
+
+#Install dependendcies
+COPY Pipfile Pipfile.lock /project/
+RUN pip install pipenv && pipenv install --system
+
+#Copy project
 COPY . /code/

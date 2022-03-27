@@ -1,24 +1,33 @@
-version: "3.9"
-   
+version: '3.8'
+
 services:
-  db:
-    image: postgres
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-  web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    depends_on:
-      - db
+    db:
+        container_name: icddb
+        image: postgres:13
+        environment:
+          - POSTGRES_DB=icddb
+          - POSTGRES_USER=afi
+          - POSTGRES_PASSWORD=icd2022
+        volumes: 
+            - postgres_data:/var/lib/postgresql/data/
+
+    web:
+        container_name: icd
+        build: .
+        command: python /code/manage.py runserver 0.0.0.0:8000
+        
+        volumes: 
+            - .:/code
+        ports: 
+            - 8000:8000
+        
+        depends_on: 
+            - db
+environment:
+          - "DJANGO_SECRET_KEY='django-insecure-%$eg^ah@)vplxgnc*&ip(9k_2vvl8)h5uw*4(zksudc*n6@7dg'"
+          - "DJANGO_DEBUG=True"
+          - "POSTGRES_DB=icddb"
+          - "POSTGRES_USER=afi"
+          - "POSTGRES_PASSWORD=icd2022"
+volumes: 
+    postgres_data:
