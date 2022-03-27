@@ -1,7 +1,7 @@
 import os
 import csv
 
-from diagnosis.models import DiagnosisCategory
+from api.models import DiagnosisCategory
 
 module_dir = os.path.dirname(__file__)
 file_path = os.path.join(module_dir, 'categories.csv')

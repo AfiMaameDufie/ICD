@@ -82,7 +82,7 @@ class TestDiagnosisCategory(APITestCase):
     
     def setUp(self):
         self.category_list_create_url = reverse("diagnosiscategory-list")
-        self.category_detail_url = reverse("diagnosiscategory-detail")
+        self.category_detail_url = "diagnosiscategory-detail"
     
     def test_get_category_list(self):
         response = self.client.get(self.category_list_create_url)
