@@ -23,7 +23,7 @@ services:
         
         depends_on: 
             - db
-environment:
+        environment:
           - "DJANGO_SECRET_KEY='django-insecure-%$eg^ah@)vplxgnc*&ip(9k_2vvl8)h5uw*4(zksudc*n6@7dg'"
           - "DJANGO_DEBUG=True"
           - "POSTGRES_DB=icddb"
