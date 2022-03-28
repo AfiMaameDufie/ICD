@@ -16,9 +16,7 @@ class DiagnosisSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Diagnosis
-        fields = ('url','id','version', 'category', 'category_title',
-                  'diagnosis_code', 'full_code','abbreviation_description', 'full_description')
-        read_only_fields = ['full_code']
+        fields = ('url','id','version', 'category', 'category_title')
 
 
     

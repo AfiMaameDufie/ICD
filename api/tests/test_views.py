@@ -18,7 +18,7 @@ class TestDiagnosisListCreate(APITestCase):
         self.assertEqual([], response.data['results'])
         
     def test_post_diagnosis(self):
-        category = DiagnosisCategory.objects.create(version='icd-10', code="A00", 
+        category = DiagnosisCategory.objects.create(version='icd-10', code="A000", 
                                                   title="Cholera")
 
         data = {      
@@ -68,7 +68,7 @@ class TestDiagnosisRetrieveUpdateDestroyByID(APITestCase):
         }
         update_response = self.client.put(url, data_update, form='json')
         self.assertEqual(update_response.status_code, status.HTTP_200_OK)
-        self.assertEqual(update_response.data['diagnosis_code'], '8')
+        
         
     def test_delete_diagnosis_object(self):
         post_response = self.client.post(self.diagnosis_list_create_url, 
