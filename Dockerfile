@@ -10,6 +10,7 @@ WORKDIR /code
 
 #Install dependendcies
 COPY Pipfile Pipfile.lock /code/
+RUN pip install --upgrade pip
 RUN pip install pipenv && pipenv install --system
 
 #Copy project
