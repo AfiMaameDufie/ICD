@@ -17,6 +17,6 @@ def run():
                 
                 DiagnosisCategory.objects.create(code=data[0], title=data[1])  
             # Dipslay success message if no exception was thrown     
-            print("Data suscessfully loaded to Diagnosis model")     
+            print("Data sucessfully loaded to Diagnosis model")     
     except Exception as message:
         print(message)

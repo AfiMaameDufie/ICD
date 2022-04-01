@@ -1,4 +1,3 @@
-from django.urls import URLPattern
 from rest_framework.routers import SimpleRouter
 from .views import DiagnosisView, CategoryView
 

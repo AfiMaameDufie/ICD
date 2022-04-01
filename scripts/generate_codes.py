@@ -21,6 +21,7 @@ def run():
                 Diagnosis.objects.create(category=category, diagnosis_code=data[1], full_code=data[2],
                                             abbreviation_description=data[3], full_description=data[4])
             # Dipslay success message if no exception was thrown     
-            print("Data suscessfully loaded to Diagnosis model") 
+            print("Data successfully loaded to Diagnosis model") 
     except Exception as message:
         print(message)
+        #log4j not print
